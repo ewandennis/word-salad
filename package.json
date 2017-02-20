@@ -1,0 +1,39 @@
+{
+  "name": "word-salad",
+  "version": "0.0.1",
+  "description": "Human-centric unique identifiers",
+  "main": "index.js",
+  "bin": {
+    "mkid": "./bin/mkid.js"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "engines": {
+    "node": ">= 5.12.0" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ewandennis/word-salad.git"
+  },
+  "keywords": [
+    "locator",
+    "identifier",
+    "id",
+    "uuid",
+    "human"
+  ],
+  "author": "Ewan Dennis",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ewandennis/word-salad/issues"
+  },
+  "homepage": "https://github.com/ewandennis/word-salad#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  },
+  "dependencies": {
+    "q": "^1.4.1"
+  }
+}
