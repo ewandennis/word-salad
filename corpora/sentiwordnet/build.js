@@ -6,8 +6,14 @@ const adjectives = new Set();
 const nouns = new Set();
 const lines = readline.createInterface({ input: fs.createReadStream(process.argv[2]) });
  
+const MAX_ADJ_PHRASE_LEN = 1;
+
 function decodeWords(w) {
   return w.replace(/_/g, ' ');
+}
+
+function phraseLength(ph) {
+  return ph.split(/\s+/).length;
 }
 
 lines.on('line', line => {
@@ -37,9 +43,21 @@ lines.on('line', line => {
 });
 
 lines.on('close', () => {
+  let adjectiveList = [...adjectives];
+  let nounList = [...nouns];
+  console.log(`${adjectiveList.length.toLocaleString()} adjectives extracted`);
+  console.log(`${nounList.length.toLocaleString()} nouns extracted`);
+
+  adjectiveList = adjectiveList.filter(adj => phraseLength(adj) <= MAX_ADJ_PHRASE_LEN);
+
+  console.log(`${adjectiveList.length.toLocaleString()} adjectives left after filtering`);
+
+  const range = adjectiveList.length * nounList.length;
+  console.log(`Range of corpus: ${range.toLocaleString()} identifiers`);
+
   fs.writeFileSync(process.argv[3], JSON.stringify({
-    adjectives: [...adjectives],
-    nouns: [...nouns]
+    adjectives: adjectiveList,
+    nouns: nounList
   }));
 });
 
