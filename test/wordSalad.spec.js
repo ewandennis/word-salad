@@ -19,5 +19,12 @@ describe('word-salad', () => {
     const id = wordSalad.toInt('wordy wendigo');
     expect(id).to.be.an.integer;
   });
+
+  it('should preserve end-to-end identity', () => {
+    const id = Math.floor(0.25 * wordSalad.range());
+    const words = wordSalad.fromInt(id);
+    const wordid = wordSalad.toInt(words);
+    expect(wordid).to.equal(id);
+  });
 });
 
