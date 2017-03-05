@@ -1,9 +1,9 @@
 'use strict';
 
-const bitops = require('../lib/bitops');
+const bitops = require('../lib/bignumbitops');
 const expect = require('chai').expect;
 
-describe('Bit operations', () => {
+describe('Big num bit operations', () => {
   describe('oddBits', () => {
     it('should collapse odd bits', () => {
       expect(bitops.oddBits(0b0000000000000001)).to.equal(0b1);
