@@ -4,20 +4,33 @@ const wordSalad = require('../lib/wordSalad');
 const expect = require('chai').expect;
 
 describe('word-salad', () => {
-  it('should issue identifier strings', () => {
-    const id = wordSalad.nextID();
-    expect(id).to.be.a.string;
-    expect(id).to.have.length.above(0);
+  describe('nextID', () => {
+    it('should issue varying identifier strings', () => {
+      const id = wordSalad.nextID();
+      expect(id).to.be.a.string;
+      expect(id).to.have.length.above(0);
+      expect(wordSalad.nextID()).not.to.equal(id);
+    });
   });
 
-  it('should map from integers', () => {
-    const id = wordSalad.fromInt(101);
-    expect(id).to.be.a.string;
+  describe('fromInt', () => {
+    it('should map from integers', () => {
+      const id = wordSalad.fromInt(101);
+      expect(id).to.be.a.string;
+    });
+    it('should return null for invalid numeric values', () => {
+      expect(wordSalad.fromInt(0b11111111111111111111111111111111)).to.be.null;
+    });
   });
 
-  it('should map to integers', () => {
-    const id = wordSalad.toInt('wordy wendigo');
-    expect(id).to.be.an.integer;
+  describe('toInt', () => {
+    it('should map to integers', () => {
+      const id = wordSalad.toInt('wordy wendigo');
+      expect(id).to.be.an.integer;
+    });
+    it('should return NaN for invalid strings', () => {
+      expect(wordSalad.toInt('noun noun')).to.be.NaN;
+    });
   });
 
   it('should preserve end-to-end identity', () => {
