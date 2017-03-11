@@ -4,7 +4,7 @@
   "description": "Human-centric unique identifiers",
   "main": "index.js",
   "bin": {
-    "mkid": "./bin/mkid.js"
+    "mkWordSalad": "./bin/mkWordSalad.js"
   },
   "scripts": {
     "test": "mocha"
@@ -34,7 +34,6 @@
     "mocha": "^3.2.0"
   },
   "dependencies": {
-    "big-integer": "^1.6.17",
     "bignum": "^0.12.5",
     "q": "^1.4.1"
   }
