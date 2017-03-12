@@ -39,5 +39,13 @@ describe('word-salad', () => {
     const wordid = wordSalad.toInt(words);
     expect(wordid).to.equal(id);
   });
+
+  it("should report it's internal parameter count", () => {
+    expect(wordSalad.paramCount()).to.be.a.number;
+  });
+
+  it('should produce a random identifier', () => {
+    expect(wordSalad.mkID()).to.be.a.string;
+  });
 });
 
