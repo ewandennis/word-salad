@@ -12,26 +12,36 @@ npm install word-salad --save
 Output a random identifier:
 
 ```bash
-mkid
+mkWordSalad
 ```
 ...will return something like "jet typist" or "indefinable sugarloaf".
 
-# Mapping From Existing Numeric Identifiers
+To do that programmatically:
+
+```javascript
+console.log(require('word-salad').mkID());
+```
+
+# Map From Existing Numeric Identifiers
 ```javascript
 const wordSalad = require('word-salad');
 const person = {id:101, name:'Sue'}
 person.id = wordSalad.fromInt(person.id);
 ```
 
-Note: this is a naive and inefficient way to use word salad. Please consider using hints to maximise the space of potential identifiers.
-
-# Mapping To Numeric Identifiers
+# Map To Numeric Identifiers
 ```javascript
 const wordSalad = require('word-salad');
 const person = {id:'inimical pizzicato', name:'Sue'}
 person.id = wordSalad.toInt(person.id);
 ```
 
-Note: this is a naive and inefficient way to use word salad. Please consider using hints to maximise the space of potential identifiers.
+# Generate A Sequence of Identifiers
 
+```javascript
+const wordSalad = require('word-salad');
+for(let i = 0; i < 100; ++i) {
+  console.log(wordSalad.nextID());
+}
+```
 
