@@ -14,7 +14,7 @@ Output a random identifier:
 ```bash
 mkWordSalad
 ```
-...will return something like "jet typist" or "indefinable sugarloaf".
+That will return something like "jet typist" or "indefinable sugarloaf".
 
 To do that programmatically:
 
